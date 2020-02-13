@@ -1,0 +1,38 @@
+body {
+  background-color: gainsboro;
+  font-size: 36pt;
+}
+h1 {
+  
+  margin-top: 0px;
+
+  color:white;
+  text-align: center;
+  background-color:rgb(10, 162, 200);
+  /* border : 2px solid black; */
+}
+div {
+
+  margin-top : 0px;
+  position: relative;
+  text-align: center;
+}
+P {
+  font-size: 20pt;
+}
+h2{
+  color:black;
+  font-size: 38pt;
+  font: outline bolder;
+}
+figcaption {
+  font-size: 16pt;
+  position:inline-block;
+}
+.stores {
+
+ margin: 100px;
+
+align-content:center;
+
+}
