@@ -18,15 +18,10 @@ function Cookie_store (name ,customer_min , customer_max , average_cookies) {
 }
 //creates the numbers of cookies sold for every hour
 Cookie_store.prototype.create_cookie_sales_per_hour = function () {
-  // var customers = customer_per_hour (this.customer_min , this.customer_max );
-
   for (var i = 0 ; i < hours.length ; i++) {
     var sales = customer_per_hour (this.customer_min , this.customer_max ) * Math.floor(this.average_cookies);
     this.cookie_sales_per_hour.push(sales);
   }
-
-  console.log(sales);
-  console.log(this.cookie_sales_per_hour );
 
 };
 //creates the total of cookies sold in a day
@@ -38,9 +33,6 @@ Cookie_store.prototype.daily_total = function () {
 
 
 var seattle = new Cookie_store ('Seattle',23,65,6.3);
-// seattle.create_cookie_sales_per_hour();
-// seattle.daily_total();
-
 var tokyo = new Cookie_store ('Tokyo',3,24,1.2);
 var dubai = new Cookie_store ('Dubai',11,38,3.7);
 var paris = new Cookie_store ('Paris',20,38,2.3);
@@ -88,6 +80,7 @@ function render (store) {
 
   table.appendChild(row);
 }
+
 //generates random customer
 function customer_per_hour (min , max ) {
   min = Math.ceil(min);
@@ -100,26 +93,51 @@ for (var i = 0; i < total_stores.length; i++) {
   total_stores[i].create_cookie_sales_per_hour();
   total_stores[i].daily_total();
   render(total_stores[i]);
-  // footer(total_stores[i]);
+
 }
+
+function works (event) {
+  event.preventDefault();
+  var name = event.target.name.value;
+  var min = parseInt(event.target.min.value);
+  var max = parseInt(event.target.max.value);
+  var avg = parseInt(event.target.average.value);
+  console.log('it works');
+  var newstore = new Cookie_store(name,min,max,avg);
+
+  console.log(newstore.cookie_sales_per_hour);
+  newstore.create_cookie_sales_per_hour();
+  newstore.daily_total();
+
+  render(newstore);
+  form.reset();
+}
+
+var form = document.getElementById('form');
+form.addEventListener('submit', works);
+
+var tm = [];
+
 function footer () {
+  /// creates the total name
   var row = document.createElement('tr');
   var final = document.createElement('th');
   final.textContent = ('TOTAL');
   row.appendChild(final);
-  // var sum = 0;
+
   // //creates the total sale of cookies for every hour
   for (var j = 0; j < hours.length ; j++){
     var sum = 0;
     for (var i = 0; i < total_stores.length; i++) {
       sum = sum + total_stores[i].cookie_sales_per_hour[j];
-    }
 
+    }
+  
     var total = document.createElement('th');
-    total.textContent = sum; 
+    total.textContent = sum;
     row.appendChild(total);
   }
-
+  ///creates the daily totals.
   var add = 0;
   for (var i = 0; i < total_stores.length; i++) {
     add = add+ total_stores[i].cookie_sales_per_day;
@@ -131,9 +149,6 @@ function footer () {
   table.appendChild(row);
 
 }
-
 footer();
 
-
-
-
+console.log(arr);
