@@ -109,7 +109,12 @@ function works (event) {
   newstore.create_cookie_sales_per_hour();
   newstore.daily_total();
 
+  
+  let el = document.getElementById('sales');
+  // el.removeChild(el.childNodes[el.childNodes.length] );
+  el.removeChild(el.childNodes[el.childElementCount] );
   render(newstore);
+  footer();
   form.reset();
 }
 
@@ -121,18 +126,19 @@ var tm = [];
 function footer () {
   /// creates the total name
   var row = document.createElement('tr');
+  row.id = 'total-row';
+
   var final = document.createElement('th');
   final.textContent = ('TOTAL');
   row.appendChild(final);
 
   // //creates the total sale of cookies for every hour
-  for (var j = 0; j < hours.length ; j++){
+  for (var j = 0; j < hours.length ; j++) {
     var sum = 0;
     for (var i = 0; i < total_stores.length; i++) {
       sum = sum + total_stores[i].cookie_sales_per_hour[j];
-
     }
-  
+
     var total = document.createElement('th');
     total.textContent = sum;
     row.appendChild(total);
@@ -151,4 +157,3 @@ function footer () {
 }
 footer();
 
-console.log(arr);
