@@ -5,34 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
- <style>
-  th{
-    border: 2px solid black;
-    color: black;
-   
-  }
-  #sales {
-    margin:100px 350px;
-    height:500px;
-    background-color: yellow;
-  }
- </style>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
+<body id="salespage">
+  <h1 id="page">SALES'S PAGE</h1>
   <form id="form">
-    <label>Store</label>
-    <input name="name" type="text"> 
-    <label>Customer Minimum</label>
-    <input name="min" type="text">
-    <label>Customer Maximum</label>
-    <input name="max" type="text">
-    <label>Average Cookies</label>
-    <input name="average" type="text">
-    <button type="onclick">SUBMIT</button>
+    <fieldset>
+      <label>Store</label>
+      <input name="name" type="text"> 
+      <label>Customer Minimum</label>
+      <input name="min" type="text">
+      <label>Customer Maximum</label>
+      <input name="max" type="text">
+      <label>Average Cookies</label>
+      <input name="average" type="text">
+      <button type="onclick">SUBMIT</button>
+    </fieldset>
   </form>
   <table id="sales">
     
   </table>
+  <a id="return"href="index.html">HOME PAGE.</a> 
+  
   <script src="app.js"></script>
 </body>
 </html>

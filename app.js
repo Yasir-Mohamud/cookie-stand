@@ -95,7 +95,7 @@ for (var i = 0; i < total_stores.length; i++) {
   render(total_stores[i]);
 
 }
-
+// creates new instances for cookiestand
 function works (event) {
   event.preventDefault();
   var name = event.target.name.value;
